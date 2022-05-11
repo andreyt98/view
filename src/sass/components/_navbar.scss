@@ -1,0 +1,22 @@
+.nav{
+    @include flex($justify: space-between, $align: center);
+    padding: .2rem .5rem;
+    width: 100%;
+    overflow-x: hidden;
+    white-space: nowrap;
+
+    .logo{color: $primary; width: 3rem; min-width: 2rem;}
+        
+    .user{width: 2rem; min-width: 2rem; color: white;}
+
+    .links{
+        @include flex($justify: space-between, $align: center, $gap: 1rem);
+        a{
+            color: #ffffff;
+            border-bottom: 1px solid #ffffff00;
+            transition: all 0.4s;
+            &:hover{border-bottom:1px solid $primary;}
+        }
+    }
+
+}
