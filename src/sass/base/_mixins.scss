@@ -1,0 +1,15 @@
+@mixin position($position,$top: null,$right: null,$bottom: null,$left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin flex($direction: null, $justify: null, $align: null, $gap: null) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}

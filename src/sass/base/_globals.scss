@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: $background;
+}
+ul {list-style: none;}
+li {display: inline-block;}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
