@@ -6,24 +6,25 @@ import { slideTo } from "../helpers/slideTo";
 export const Slider = (header, mediaType) => {
   const $sliderContainer = document.createElement("DIV");
   $sliderContainer.classList.add("slider-container");
-  const $sliderHeader = document.createElement("DIV");
-  $sliderHeader.classList.add("slider-header");
-  $sliderHeader.innerHTML = `<h2>${header}</h2>`;
-
-  const $sliderControls = document.createElement("DIV");
-  $sliderControls.classList.add("controls");
-  $sliderControls.innerHTML = `${left} ${right}`;
-  $sliderHeader.append($sliderControls);
-
-  $sliderContainer.append($sliderHeader);
-
-  const $slider = document.createElement("DIV");
-  $slider.classList.add("slider");
 
   dataRequest(
-    `https://api.themoviedb.org/3/${mediaType}/popular?api_key=${key}&language=en-US&page=1`,
+    `https://api.themoviedb.org/3/${mediaType}/popular?api_key=${process.env.API_K}&language=en-US&page=1`,
 
     (data) => {
+      const $sliderHeader = document.createElement("DIV");
+      $sliderHeader.classList.add("slider-header");
+      $sliderHeader.innerHTML = `<h2>${header}</h2>`;
+
+      const $sliderControls = document.createElement("DIV");
+      $sliderControls.classList.add("controls");
+      $sliderControls.innerHTML = `${left} ${right}`;
+      $sliderHeader.append($sliderControls);
+
+      $sliderContainer.append($sliderHeader);
+
+      const $slider = document.createElement("DIV");
+      $slider.classList.add("slider");
+
       for (let i = 0; i < data.results.length; i++) {
         const $content = document.createElement("DIV");
         $content.classList.add("content");
@@ -39,21 +40,24 @@ export const Slider = (header, mediaType) => {
 
         const $btn = document.createElement("BUTTON");
         $btn.classList.add("primary-btn");
-        $btn.textContent = 'View trailer'
+        $btn.textContent = "View trailer";
         const $title = document.createElement("p");
 
-        let mediaName = mediaType === 'movie' ? data.results[i].original_title : data.results[i].name
+        let mediaName =
+          mediaType === "movie"
+            ? data.results[i].original_title
+            : data.results[i].name;
 
         $title.textContent = mediaName;
 
-        $overlay.append($title,$btn);
+        $overlay.append($title, $btn);
         $content.append($overlay);
         $slider.append($content);
       }
+
+      $sliderContainer.append($slider);
     }
   );
-
-  $sliderContainer.append($slider);
 
   $sliderContainer.addEventListener("click", (evt) => {
     const slider = document.querySelector(".slider");
