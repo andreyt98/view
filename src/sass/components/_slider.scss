@@ -1,0 +1,60 @@
+.slider-container {
+  padding: 0 .5rem;
+  overflow-x: hidden;
+  position: relative;
+
+  .slider {
+    &::-webkit-scrollbar {height: 0;}
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 47%;
+    @media #{$sm}{ grid-auto-columns: 25%;}
+    @media #{$md}{ grid-auto-columns: 20%;}
+
+    gap: .3rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    @media #{$sm}{gap: .5rem}
+
+    .content {
+     border-radius: 12px;
+     position: relative;
+     overflow: hidden;
+     &:hover .overlay-bg{opacity: 1;}
+
+      .content-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;       
+      }
+    }
+  } 
+ 
+ .slider-header{
+  @include flex($justify: space-between, $align: center);
+  padding: .3rem;
+  color:#ffffffd8 ;
+ }
+ 
+ 
+  .controls {
+    @include flex($justify: end, $align: center, $gap:.5rem);
+    display: none;
+    width: auto;
+    @media #{$md}{display: flex;}
+    .arrow-left,
+    .arrow-right {
+      color: #ffffffd8;
+      width: 2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+
