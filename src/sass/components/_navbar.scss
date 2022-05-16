@@ -1,22 +1,29 @@
 .nav{
     @include flex($justify: space-between, $align: center);
-    padding: .2rem .5rem;
+    padding: .2rem 1rem;
     width: 100%;
     overflow-x: hidden;
     white-space: nowrap;
-
-    .logo{color: $primary; width: 3rem; min-width: 2rem;}
+    @include position($position: fixed, $top:0);
+    z-index: 50;
+    transition: all 0.4s;
+    
+    .logo{color: $primary; font-weight: 600; font-size: 2rem;}
         
-    .user{width: 2rem; min-width: 2rem; color: white;}
-
     .links{
-        @include flex($justify: space-between, $align: center, $gap: 1rem);
+        @include flex($justify: space-between, $align: center, $gap: 1.1rem);
         a{
+            transition: all 0.4s;
             color: #ffffff;
             border-bottom: 1px solid #ffffff00;
-            transition: all 0.4s;
-            &:hover{border-bottom:1px solid $primary;}
+            &:hover{transform: scale(1.1);}
         }
-    }
+    }  
 
+    .search-btn{
+        cursor: pointer;
+        color: #ffffffcc;
+        font-size: 1.3rem;
+    }
 }
+.color-on-scroll{background: $nav-background;}

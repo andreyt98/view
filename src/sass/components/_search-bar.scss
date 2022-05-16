@@ -1,0 +1,17 @@
+.search-form {
+    @include position($position: fixed, $left: 50%, $top:70px);
+    transform: translateX(-50%);
+    width: 20rem;
+    
+    #search {
+      padding: 0.3rem 1rem;
+      outline: none;
+      border: none;
+      border-radius: 12px;
+      width: 100%;
+      background: #555555cc;
+      color: white;
+      border: 1px solid #ffffff73;
+      &::placeholder{color: #ffffffc9;}
+    }
+  }

@@ -1,5 +1,5 @@
 .slider-container {
-  padding: 0 .5rem;
+  padding: 1rem .5rem;
   overflow-x: hidden;
   position: relative;
 
@@ -12,10 +12,10 @@
     @media #{$md}{ grid-auto-columns: 20%;}
 
     gap: .3rem;
+    @media #{$sm}{gap: .5rem}
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    @media #{$sm}{gap: .5rem}
 
     .content {
      border-radius: 12px;
@@ -34,27 +34,22 @@
  
  .slider-header{
   @include flex($justify: space-between, $align: center);
-  padding: .3rem;
+  padding: 1rem;
   color:#ffffffd8 ;
  }
- 
  
   .controls {
     @include flex($justify: end, $align: center, $gap:.5rem);
     display: none;
     width: auto;
     @media #{$md}{display: flex;}
-    .arrow-left,
-    .arrow-right {
+    .left,
+    .right {
       color: #ffffffd8;
-      width: 2rem;
+      font-size: 2rem;
       cursor: pointer;
       transition: all 0.3s;
-      &:hover {
-        transform: scale(1.1);
-      }
+      &:hover { transform: scale(1.1);}
     }
   }
 }
-
-
