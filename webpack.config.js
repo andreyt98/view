@@ -27,7 +27,8 @@ const rulesForHTML = {
 };
 
 const rulesForImages = {
-  test: /\.(png|svg|jpg|gif|webp)%/,
+  test: /\.(png|svg|jpg|gif|webp|eot|woff|woff2|ttf)%/,
+  include: path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
   use: [
     {
       loader: "file-loader",
@@ -38,7 +39,7 @@ const rulesForImages = {
   ],
 };
 
-const rules = [styles.apply, styles.createFile, rulesForHTML, rulesForImages];
+const rules = [styles.apply, styles.createFile, rulesForHTML, rulesForImages, ];
 
 module.exports = {
   mode: "production",
