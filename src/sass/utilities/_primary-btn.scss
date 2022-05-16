@@ -1,11 +1,10 @@
 .primary-btn{
-    padding: .5rem 1rem;
+    padding: .6rem 1.5rem;
     border-radius: 10px;
     background: $primary;
     border: none;
     color: white;
     cursor: pointer;
     transition: all 0.3s;
-
     &:hover{transform: scale(1.1);}
 }
