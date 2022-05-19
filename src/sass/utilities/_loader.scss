@@ -1,7 +1,9 @@
 .loader{
-    @include position($position: absolute, $left: 50%, $top:50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%);
-    width: 7rem;
     z-index: 100;
     display: none;
+    width: 9rem;
 }
