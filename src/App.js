@@ -1,5 +1,6 @@
-import { Navbar } from "./components/Navbar";
-import { Router } from "./helpers/Router";
+import { Footer } from "./components/Footer.js";
+import { Navbar } from "./components/Navbar.js";
+import { Router } from "./helpers/Router.js";
 
 export const App = () => {
   const root = document.querySelector("#root");
@@ -7,4 +8,5 @@ export const App = () => {
 
   root.append(Navbar());
   Router();
+  root.append(Footer());
 };
