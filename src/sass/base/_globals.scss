@@ -1,30 +1,53 @@
-*,*::after,*::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
-html{
-  font-size: .5rem;
- @media #{$xs}{
-   font-size: .7rem;
- }
- @media #{$sm}{
-   font-size: 1rem;
- }
- @media #{$md}{
-   font-size: 1.2rem;
- }
- 
- @media #{$xxl}{
-   font-size: 1.5rem;
- }
+html {
+  font-size: 0.5rem;
+  @media #{$xs} {
+    font-size: 0.7rem;
+  }
+  @media #{$sm} {
+    font-size: 1rem;
+  }
+  @media #{$md} {
+    font-size: 1.2rem;
+  }
+  @media #{$xxl} {
+    font-size: 1.5rem;
+  }
 }
 body {
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: $background;
 }
-ul {list-style: none;}
-li {display: inline-block;}
-a {text-decoration: none;display: inline-block;}
+ul {
+  list-style: none;
+}
+li {
+  display: inline-block;
+}
+input {
+  padding: 0.2rem 0.3rem;
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+  &::placeholder{color: #ffffffb6;}
+}
+button{
+  background: $primary;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #ffffff62;
+  padding: 0.2rem 0.3rem;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
