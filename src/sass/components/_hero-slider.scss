@@ -4,7 +4,7 @@
   position: relative;
 
   .hero-slider {
-    &::-webkit-scrollbar {height: 0; }
+    &::-webkit-scrollbar {height: 0;}
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
@@ -23,17 +23,20 @@
         object-position: center;
       }
 
-      .hero-slider-info{
-        @include flex($direction: column,$justify: space-between, $align: center, $gap: 1rem);
+      .hero-slider-info {
+        @include flex($direction: column, $justify: space-between, $align: center, $gap: 1rem);
         padding-inline: 1.5rem;
         overflow: hidden;
 
-        .play{
+        .play {
           font-size: 2.5rem;
           cursor: pointer;
           transition: all 0.4s ease;
           z-index: 3;
-          &:hover{transform: scale(1.3); color: $primary;}
+          &:hover {
+            transform: scale(1.3);
+            color: $primary;
+          }
         }
       }
     }
@@ -46,15 +49,14 @@
     transform: translateY(-50%);
     width: 100%;
     z-index: 2;
-  
+    
     .left,.right {
       color: #ffffffd8;
       cursor: pointer;
       transition: all 0.3s;
       font-size: 3rem;
-      
       &:hover {transform: scale(1.1);}
     }
   }
-  .hero-slider-info{ @include flex($direction: column,$justify: space-between, $align: center, $gap: 1rem);}
+  .hero-slider-info { @include flex($direction: column, $justify: space-between, $align: center, $gap: 1rem);}
 }
