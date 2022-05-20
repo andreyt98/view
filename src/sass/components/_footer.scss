@@ -1,0 +1,39 @@
+.footer {
+  padding: 3rem;
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  color: #fff;
+  background: $nav-background;
+  text-align: center;
+
+  @media #{$sm} {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    color: $primary;
+  }
+  a {
+    color: #fff;
+  }
+
+  .footer-form {
+    background: #ffffff62;
+    display: flex;
+    
+    button {
+      padding-inline: 1rem;
+    }
+    input {
+      width: 100%;
+    }
+  }
+}
