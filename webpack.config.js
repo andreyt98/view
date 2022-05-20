@@ -43,6 +43,7 @@ const rules = [styles.apply, styles.createFile, rulesForHTML, rulesForImages, ];
 
 module.exports = {
   mode: "production",
+  devtool: "source-map",
 
   output: {
     path: path.resolve(__dirname, "docs"),
