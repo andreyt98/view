@@ -9,7 +9,6 @@
   padding: 0.35rem 1rem;
   width: 100%;
   overflow-x: hidden;
-  overflow: visible;
   white-space: nowrap;
   @include position($position: fixed, $top: 0);
   z-index: 50;
@@ -34,34 +33,6 @@
     }
   }
 
-  .results-container {
-    @include position($position: absolute, $top: 3rem);
-    @include flex($direction: column, $justify: space-between, $align: center, $gap: .5rem);
-    overflow-y: auto;
-    height: 70vh;
-    background: #121213;
-    color: #fff;
-    padding: 0.5rem;
-    display: none;
-    width: 100%;
-  
-      .result-item{
-        padding: 0.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: .5rem;
-        cursor: pointer;
-        border: 1px solid #ffffff31;
-        width: 100%;
-        &:hover{
-          background: #212122;
-        }
-        img{
-          width: 15%;
-        }
-      }
-  }
   .search-form {
     display: flex;
     background: #ffffff62;
