@@ -1,0 +1,29 @@
+.results-container {
+    @include position($position: fixed, $top: 4rem, $right:1%);
+    @include flex($direction: column, $justify: space-between, $align: center, $gap: .5rem);
+    overflow-y: auto;
+    height: 80vh;
+    overflow-x: hidden;
+    background: #252525;
+    border-radius: 9px;
+    color: #fff;
+    display: none;
+    width: 55%;
+    @media #{$sm}{width: 45%;}
+    @media #{$md}{width: 40%;}
+    @media #{$lg}{width: 35%;}
+    border: 1px solid #ffffff4f;
+    z-index: 49;
+        &::-webkit-scrollbar{ width: 5px;cursor: pointer;}
+        &::-webkit-scrollbar-track{border-radius: 10px;background: #383838;  margin: .2rem;}      
+        &::-webkit-scrollbar-thumb{background: #747474;border-radius: 10px;}
+ 
+      .result-item{
+        @include flex( $align: center, $gap: .5rem);
+        padding: 0.5rem;
+        cursor: pointer;
+        width: 100%;
+        &:hover{background: #141414; color: $primary}
+        img{width: 20%;}
+      }
+  }
