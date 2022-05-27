@@ -19,7 +19,7 @@ export const Footer = () => {
         <div class="column">
             <h3>Subscribe to newsletter</h3>
             <form class="footer-form">
-                ${Input("email", "email@example.com", "Subscribe").innerHTML}
+                ${Input("email", "email@example.com", true,"Subscribe").innerHTML}
             </form>
         </div>
     `;

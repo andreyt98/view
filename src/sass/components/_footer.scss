@@ -8,32 +8,22 @@
   color: #fff;
   background: $nav-background;
   text-align: center;
-
   @media #{$sm} {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
-
   .column {
     display: flex;
     flex-direction: column;
   }
-  h3 {
-    color: $primary;
-  }
-  a {
-    color: #fff;
-  }
+  h3 {color: $primary;}
+  a {color: #fff;}
 
   .footer-form {
-    background: #ffffff62;
+    background: #66666662;
     display: flex;
     
-    button {
-      padding-inline: 1rem;
-    }
-    input {
-      width: 100%;
-    }
+    button {padding-inline: 1rem;}
+    input {width: 100%;}
   }
 }
