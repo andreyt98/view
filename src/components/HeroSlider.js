@@ -1,15 +1,11 @@
 import { fetchData } from "../helpers/fetchData";
-import {sliderControls } from "../helpers/icons";
+import { sliderControls } from "../helpers/icons";
 const { left, right } = sliderControls;
 
 export const HeroSlider = (mediaType) => {
   const $sliderContainer = document.createElement("DIV");
   $sliderContainer.classList.add("hero-slider-container");
-  const $overlay = document.createElement('DIV');
-  $overlay.classList.add('video_overlay');
- 
-  $overlay.insertAdjacentHTML('beforeend', `<i class="bi bi-x-circle-fill close-overlay"></i>`)
-  document.querySelector('#root').append($overlay)
+
   fetchData(
     `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=${process.env.API_K}&language=en-US&page=1`,
 
@@ -20,6 +16,7 @@ export const HeroSlider = (mediaType) => {
       data.results.forEach((element) => {
         const $contentInfoHeader =
           mediaType === "movie" ? `${element.original_title}` : `${element.name}`;
+
         const $content = document.createElement("DIV");
         $content.classList.add("hero-content-slider");
 
@@ -34,37 +31,56 @@ export const HeroSlider = (mediaType) => {
           </div>`;
 
         $slider.append($content);
-        
 
-        document.addEventListener('click', (e) =>{
-          if(e.target.id == element.id ){
+        document.addEventListener("click", (e) => {
+          //if theres a click on the button with certain id
+          if (e.target.matches(".hero-slider .play") && e.target.id == element.id) {
 
-            $overlay.style.width = '100%'
-            document.body.style.overflowY = 'hidden'
-            document.querySelector('.loader').style.display = 'block'
-            const whatToSearch = location.hash.includes('#tv-shows') ? `https://api.themoviedb.org/3/tv/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1` : `https://api.themoviedb.org/3/movie/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`
+            //we add the overlay to the document
+            const $overlay = document.createElement("DIV");
+            $overlay.classList.add("video_overlay");
+
+            $overlay.insertAdjacentHTML(
+              "beforeend",
+              `<i class="bi bi-x-circle-fill close-overlay"></i>`
+            );
+            document.querySelector("#root").append($overlay);
+
+            document.body.style.overflowY = "hidden";
+            document.querySelector(".loader").style.display = "block";
+            const whatToSearch = location.hash.includes("#tv-shows")
+              ? `https://api.themoviedb.org/3/tv/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`
+              : `https://api.themoviedb.org/3/movie/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`;
 
             fetchData(
               `${whatToSearch}`,
-              
-              (data)=>{
-                const video = document.createElement('DIV')
-                const search = ['Final Trailer', 'Trailer', 'Official Trailer','Official Trailer 1', 'Trailer 2', 'Teaser Trailer', 'Official Teaser', 'Official HBO Max Trailer','Main Trailer', 'Official Trailer | Netflix']
 
-                data.results.forEach((e)=>{
-                  if(search.includes(e.name) ){
-                    const w = screen.width; const h = screen.width< 648 ? screen.height/2 : screen.height-150
+              (data) => {
+                const video = document.createElement("DIV");
+                const search = ["Final Trailer", "Trailer", "Official Trailer", "Official Sneak Peek","Official Trailer 1", "Trailer 2",
+                  "Teaser Trailer",
+                  "Official Teaser",
+                  "Official HBO Max Trailer",
+                  "Main Trailer",
+                  "Official Trailer | Netflix",
+                ];
+
+                data.results.forEach((e) => {
+                  console.log(e);
+                  if (search.includes(e.name)) {
+                    const w = screen.width;
+                    const h = screen.width < 648 ? screen.height / 2 : screen.height - 150;
                     video.innerHTML = `
                     <iframe width=${w} height=${h} src="https://www.youtube.com/embed/${e.key}" title=${e.name} frameborder="0" allowfullscreen allowautoplay ></iframe>                   
-                   `           
-                  }
-                })
-                $overlay.append(video)
-                document.querySelector('.loader').style.display = 'none'               
-              }           
-              )
-          } 
-        })
+                   `;
+                  }else{video.innerHTML = `There's no trailer here :(`}
+                });
+                $overlay.append(video);
+                document.querySelector(".loader").style.display = "none";
+              }
+            );
+          }
+        });
       });
 
       const $sliderControls = document.createElement("DIV");
@@ -78,18 +94,15 @@ export const HeroSlider = (mediaType) => {
   document.addEventListener("click", (evt) => {
     const heroSlider = document.querySelector(".hero-slider");
     const screenWidth = screen.width;
-
+    
     if (evt.target.matches(`.hero-slider-container .left`)) heroSlider.scrollBy(-screenWidth, 0);
     if (evt.target.matches(`.hero-slider-container .right`)) heroSlider.scrollBy(screenWidth, 0);
-
-    if (evt.target.matches(`.close-overlay`)){
-
-      evt.target.parentElement.style.width = '0';
-      evt.target.nextElementSibling.remove()
-      document.body.style.overflowY = 'auto'
-
-    } 
-
+    
+    const overlay = document.querySelector(".video_overlay");
+    if (evt.target.matches(`.close-overlay`)) {
+      overlay.remove();
+      document.body.style.overflowY = "auto";
+    }
   });
 
   return $sliderContainer;
