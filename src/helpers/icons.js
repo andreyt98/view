@@ -4,4 +4,4 @@ export const sliderControls = {
 };
 export const play = `<i class="bi bi-play-circle-fill play"></i>`;
 export const logo = `<i class="bi bi-play-btn"></i>`;
-export const search = `<i class="bi bi-search "></i>`;
+export const search = `<i class="bi bi-search search-btn"></i>`;
