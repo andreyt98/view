@@ -13,8 +13,10 @@ export const Navbar = () => {
       <li><a href="#tv-shows"> TV Shows</a> </li>    
     </ul>   
 
+    ${search}
+
     <form class="search-form"> 
-    ${Input("search", "Search something", search).innerHTML}
+      ${Input("search", "Search something", false).innerHTML}
     </form> 
     `;
 
@@ -43,7 +45,6 @@ export const Navbar = () => {
           if (data.results.length <= 0){            
             $resultsContainer.innerHTML = `There are no results for "${query}"`;
           }
-
           data.results.forEach((element) => {
             const { poster_path, media_type, } = element;
             const resultName = element.name || element.original_title || element.original_name;
@@ -58,9 +59,7 @@ export const Navbar = () => {
               const $resultImg = document.createElement("IMG");
               $resultImg.src = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
-
               $resultItem.append($resultImg, $resultName);
-
               $resultsContainer.append($resultItem);
             }
           });
@@ -69,5 +68,10 @@ export const Navbar = () => {
     }
   });
 
+  document.addEventListener('click', (e)=>{
+    if(e.target.matches('.search-btn')){
+      document.querySelector('.search-form').classList.toggle('search-form-active')
+    }
+  })
   return $navBar;
 };
