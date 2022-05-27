@@ -22,7 +22,7 @@ export const HeroSlider = (mediaType) => {
 
         $content.innerHTML = `
           <img src="https://image.tmdb.org/t/p/w1280${element.backdrop_path}" class="hero-content-img" />
-          <div class="overlay-bg" style="opacity:1">
+          <div class="overlay" style="opacity:1">
           
               <div class="hero-slider-info">
                 <h2>${$contentInfoHeader}</h2>
@@ -38,11 +38,11 @@ export const HeroSlider = (mediaType) => {
 
             //we add the overlay to the document
             const $overlay = document.createElement("DIV");
-            $overlay.classList.add("video_overlay");
+            $overlay.classList.add("overlay", "for-video");
 
             $overlay.insertAdjacentHTML(
               "beforeend",
-              `<i class="bi bi-x-circle-fill close-overlay"></i>`
+              `<i class="bi bi-x-circle-fill close-overlay-btn"></i>`
             );
             document.querySelector("#root").append($overlay);
 
@@ -96,8 +96,8 @@ export const HeroSlider = (mediaType) => {
     if (evt.target.matches(`.hero-slider-container .left`)) heroSlider.scrollBy(-screenWidth, 0);
     if (evt.target.matches(`.hero-slider-container .right`)) heroSlider.scrollBy(screenWidth, 0);
     
-    const overlay = document.querySelector(".video_overlay");
-    if (evt.target.matches(`.close-overlay`)) {
+    const overlay = document.querySelector(".for-video");
+    if (evt.target.matches(`.close-overlay-btn`)) {
       overlay.remove();
       document.body.style.overflowY = "auto";
     }

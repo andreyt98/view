@@ -1,4 +1,4 @@
-.overlay-bg{
+.overlay{
     @include flex($direction: column, $justify: center, $align: center, $gap: 1rem);
     @include position(absolute, $left: 0, $top: 0);
     width: 100%;
@@ -8,4 +8,19 @@
     color: white;
     opacity: 0;
     transition: all 0.3s;
+}
+.for-video{
+    position: fixed;
+    z-index: 100;
+    background: #000000fd;
+    opacity: 1;
+}
+.close-overlay-btn{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    cursor: pointer;
+    font-size: 1.7rem;
+    transition: all 0.3s;
+    &:hover{transform: scale(1.2);}
 }

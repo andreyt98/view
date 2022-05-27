@@ -31,7 +31,7 @@ export const Slider = (header, mediaType, category) => {
 
         $content.innerHTML = `
         <img src=https://image.tmdb.org/t/p/w500${element.poster_path} class="content-img"></img>
-          <div class="overlay-bg">
+          <div class="overlay">
             <p>${mediaName}</p>
             <p style=color:${col}> ${$rate.textContent}</p>
             <button class="primary-btn" id=${element.id}>View trailer</button>    
@@ -43,11 +43,11 @@ export const Slider = (header, mediaType, category) => {
           if (e.target.matches(".slider button") && e.target.id == element.id) {
             //we add the overlay to the document
             const $overlay = document.createElement("DIV");
-            $overlay.classList.add("video_overlay");
+            $overlay.classList.add("overlay", "for-video");
 
             $overlay.insertAdjacentHTML(
               "beforeend",
-              `<i class="bi bi-x-circle-fill close-overlay"></i>`
+              `<i class="bi bi-x-circle-fill close-overlay-btn"></i>`
             );
             document.querySelector("#root").append($overlay);
 
@@ -105,8 +105,8 @@ export const Slider = (header, mediaType, category) => {
     if (evt.target.matches(`.left`)) elementToSlide.scrollBy(-(screenWidth / 2), 0);
     if (evt.target.matches(`.right`)) elementToSlide.scrollBy(screenWidth / 2, 0);
 
-    const overlay = document.querySelector(".video_overlay");
-    if (evt.target.matches(`.close-overlay`)) {
+    const overlay = document.querySelector(".for-video");
+    if (evt.target.matches(`.close-overlay-btn`)) {
       overlay.remove();
       document.body.style.overflowY = "auto";
     }
