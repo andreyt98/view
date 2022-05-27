@@ -52,7 +52,6 @@ export const Slider = (header, mediaType, category) => {
             document.querySelector("#root").append($overlay);
 
             document.body.style.overflowY = "hidden";
-            document.querySelector(".loader").style.display = "block";
             const whatToSearch = location.hash.includes("#tv-shows")
               ? `https://api.themoviedb.org/3/tv/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`
               : `https://api.themoviedb.org/3/movie/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`;
@@ -90,7 +89,6 @@ export const Slider = (header, mediaType, category) => {
                 });
 
                 $overlay.append(video);
-                document.querySelector(".loader").style.display = "none";
               }
             );
           }
