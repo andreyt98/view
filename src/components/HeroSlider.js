@@ -93,8 +93,8 @@ export const HeroSlider = (mediaType) => {
     const heroSlider = document.querySelector(".hero-slider");
     const screenWidth = screen.width;
     
-    if (evt.target.matches(`.hero-slider-container .left`)) heroSlider.scrollBy(-screenWidth, 0);
-    if (evt.target.matches(`.hero-slider-container .right`)) heroSlider.scrollBy(screenWidth, 0);
+    if (evt.target.matches(`.hero-slider-container .left`)) heroSlider.scrollBy(-screenWidth/2, 0);
+    if (evt.target.matches(`.hero-slider-container .right`)) heroSlider.scrollBy(screenWidth/2, 0);
     
     const overlay = document.querySelector(".for-video");
     if (evt.target.matches(`.close-overlay-btn`)) {
