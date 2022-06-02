@@ -9,7 +9,7 @@
     }
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 47%;
+    grid-auto-columns: 35%;
     @media #{$sm} {
       grid-auto-columns: 25%;
     }
@@ -50,11 +50,11 @@
 
   .controls {
     @include flex($justify: end, $align: center, $gap: 0.5rem);
-    display: none;
+    // display: none;
     width: auto;
-    @media #{$md} {
+    // @media #{$md} {
       display: flex;
-    }
+    // }
     .left,
     .right {
       color: #ffffffd8;

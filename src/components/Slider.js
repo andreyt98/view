@@ -102,8 +102,8 @@ export const Slider = (header, mediaType, category) => {
     const elementToSlide = evt.target.parentElement.parentElement.nextElementSibling;
     const screenWidth = screen.width;
 
-    if (evt.target.matches(`.left`)) elementToSlide.scrollBy(-(screenWidth / 2), 0);
-    if (evt.target.matches(`.right`)) elementToSlide.scrollBy(screenWidth / 2, 0);
+    if (evt.target.matches(`.left`)) elementToSlide.scrollBy(-(screenWidth / 5), 0);
+    if (evt.target.matches(`.right`)) elementToSlide.scrollBy(screenWidth / 5, 0);
 
     const overlay = document.querySelector(".for-video");
     if (evt.target.matches(`.close-overlay-btn`)) {
