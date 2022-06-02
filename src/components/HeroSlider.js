@@ -1,6 +1,8 @@
 import { fetchData } from "../helpers/fetchData";
 import { sliderControls } from "../helpers/icons";
 const { left, right } = sliderControls;
+import { renderTrailer } from "../helpers/renderTrailer.js";
+
 
 export const HeroSlider = (mediaType) => {
   const $sliderContainer = document.createElement("DIV");
@@ -33,51 +35,11 @@ export const HeroSlider = (mediaType) => {
         $slider.append($content);
 
         document.addEventListener("click", (e) => {
-          //if theres a click on the button with certain id
+          
           if (e.target.matches(".hero-slider .play") && e.target.id == element.id) {
-
-            //we add the overlay to the document
-            const $overlay = document.createElement("DIV");
-            $overlay.classList.add("overlay", "for-video");
-
-            $overlay.insertAdjacentHTML(
-              "beforeend",
-              `<i class="bi bi-x-circle-fill close-overlay-btn"></i>`
-            );
-            document.querySelector("#root").append($overlay);
-
-            document.body.style.overflowY = "hidden";
-            const whatToSearch = location.hash.includes("#tv-shows")
-              ? `https://api.themoviedb.org/3/tv/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`
-              : `https://api.themoviedb.org/3/movie/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`;
-
-            fetchData(
-              `${whatToSearch}`,
-
-              (data) => {
-                const video = document.createElement("DIV");
-                const search = ["Final Trailer", "Trailer", "Official Trailer", "Official Sneak Peek","Official Trailer 1", "Trailer 2",
-                  "Teaser Trailer",
-                  "Official Teaser",
-                  "Official HBO Max Trailer",
-                  "Main Trailer",
-                  "Official Trailer | Netflix",
-                ];
-
-                data.results.forEach((e) => {
-                  console.log(e);
-                  if (search.includes(e.name)) {
-                    const w = screen.width;
-                    const h = screen.width < 648 ? screen.height / 2 : screen.height - 150;
-                    video.innerHTML = `
-                    <iframe width=${w} height=${h} src="https://www.youtube.com/embed/${e.key}" title=${e.name} frameborder="0" allowfullscreen allowautoplay ></iframe>                   
-                   `;
-                  }else{video.innerHTML = `There's no trailer here :(`}
-                });
-                $overlay.append(video);
-              }
-            );
+            renderTrailer(element);
           }
+
         });
       });
 
