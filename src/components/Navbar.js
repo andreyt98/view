@@ -13,10 +13,10 @@ export const Navbar = () => {
       <li><a href="#tv-shows"> TV Shows</a> </li>    
     </ul>   
 
-    ${search}
-
+    
     <form class="search-form"> 
-      ${Input("search", "Search something", false).innerHTML}
+      ${search}
+      ${Input("search", "Search", false).innerHTML}
     </form> 
     `;
 
@@ -68,10 +68,5 @@ export const Navbar = () => {
     }
   });
 
-  document.addEventListener('click', (e)=>{
-    if(e.target.matches('.search-btn')){
-      document.querySelector('.search-form').classList.toggle('search-form-active')
-    }
-  })
   return $navBar;
 };

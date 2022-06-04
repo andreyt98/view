@@ -14,19 +14,13 @@
   transition: all 0.4s;
 
   .search-btn{
-    cursor: pointer;
-    font-size: 1.5rem;
-    width: auto;
-    @media #{$md}{display: none;}
-    margin-left: auto;
+    font-size: 1rem;
   }
-
   .logo {
     color: $primary;
     font-weight: 600;
     font-size: 2rem;
   }
-
   .links {
     @include flex($justify: center, $align: center, $gap: 1.1rem);
     grid-column: 2/3;
@@ -40,18 +34,12 @@
     }
   }
   .search-form {
-    width: 85%;
+    @include flex($justify: space-between, $align:center);
+    padding-left: 0.3rem;
+    transition: all 0.3s;
+    width: 80%;
     margin-left: auto;
-    display: none;
-    margin: 0 auto;
-    @media #{$md}{width: 85%; display: flex;}
   } 
-  .search-form-active{
-    display: flex;
-    grid-row: 2;
-    grid-column: 1/4;
-    @media #{$md}{grid-row: 1; grid-column: 3/4;}
-  }
 }
 .color-on-scroll {
   background: $nav-background;
