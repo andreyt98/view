@@ -6,7 +6,7 @@
   justify-content: space-around;
   gap: 2rem;
   color: #fff;
-  background: $nav-background;
+  // background: $nav-background;
   text-align: center;
   @media #{$sm} {
     grid-auto-flow: column;

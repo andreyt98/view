@@ -4,14 +4,14 @@ export const Router = () => {
   const { hash } = location;
   const root = document.getElementById("root");
   if (!hash || hash === "#home" || hash === "#movies") {
-    document.querySelector('a[href="#movies"]').style.borderBottom = "1px solid #e95f0f";
+    document.querySelector('a[href="#movies"]').style.borderBottom = "1px solid #ff4800";
     root.append(
       HeroSlider("movie"),
       Slider("| Popular Movies", "movie", "popular"),
       Slider("| Upcoming Movies", "movie", "upcoming")
     );
   } else if (hash === "#tv-shows") {
-    document.querySelector('a[href="#tv-shows"]').style.borderBottom = "1px solid #e95f0f";
+    document.querySelector('a[href="#tv-shows"]').style.borderBottom = "1px solid #ff4800";
 
     root.append(
       HeroSlider("tv"),
