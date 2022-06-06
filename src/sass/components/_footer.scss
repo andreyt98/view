@@ -3,6 +3,7 @@
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
   
   .overlay{
     opacity: 1;
@@ -35,5 +36,16 @@
   .footer-form {
     display: flex; 
     margin-top: .5rem;
+  }
+
+  .lang-selector{
+    color: #fff;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    font-size: .6rem;
+    #language{
+      width: 100%;
+    }
   }
 }
