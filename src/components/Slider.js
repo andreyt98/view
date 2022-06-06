@@ -2,13 +2,14 @@ import { sliderControls } from "../helpers/icons";
 const { left, right } = sliderControls;
 import { fetchData } from "../helpers/fetchData";
 import { renderTrailer } from "../helpers/renderTrailer.js";
+import { lang } from "../App";
 
 export const Slider = (header, mediaType, category) => {
   const $sliderContainer = document.createElement("DIV");
   $sliderContainer.classList.add("slider-container");
 
   fetchData(
-    `https://api.themoviedb.org/3/${mediaType}/${category}?api_key=${process.env.API_K}&language=en-US&page=1&include_adult=false`,
+    `https://api.themoviedb.org/3/${mediaType}/${category}?api_key=${process.env.API_K}&language=${lang}&page=1&include_adult=false`,
 
     (data) => {
       $sliderContainer.innerHTML = `
@@ -43,7 +44,7 @@ export const Slider = (header, mediaType, category) => {
         document.addEventListener("click", (e) => {
 
           if (e.target.matches(".slider button") && e.target.id == element.id) {
-            renderTrailer(element);
+            renderTrailer(element,lang);
           }
           
         });

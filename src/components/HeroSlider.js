@@ -2,14 +2,15 @@ import { fetchData } from "../helpers/fetchData";
 import { sliderControls } from "../helpers/icons";
 const { left, right } = sliderControls;
 import { renderTrailer } from "../helpers/renderTrailer.js";
-
+import { lang } from "../App";
 
 export const HeroSlider = (mediaType) => {
+
   const $sliderContainer = document.createElement("DIV");
   $sliderContainer.classList.add("hero-slider-container");
 
   fetchData(
-    `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=${process.env.API_K}&language=en-US&page=1`,
+    `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=${process.env.API_K}&language=${lang}&page=1`,
 
     (data) => {
       const $slider = document.createElement("DIV");

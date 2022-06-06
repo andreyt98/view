@@ -1,7 +1,9 @@
 import { fetchData } from "./fetchData.js";
 import { loader } from "./icons.js";
+import { lang } from "../App";
 
 export const renderTrailer = (element) => {
+    console.log(lang)
 
     const $overlay = document.createElement("DIV");
     $overlay.classList.add("overlay", "for-video");
@@ -13,8 +15,8 @@ export const renderTrailer = (element) => {
     document.body.style.overflowY = "hidden";
     
     const whatToSearch = location.hash.includes("#tv-shows")
-    ? `https://api.themoviedb.org/3/tv/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`
-    : `https://api.themoviedb.org/3/movie/${element.id}/videos?api_key=${process.env.API_K}&language=en-US&page=1`;
+    ? `https://api.themoviedb.org/3/tv/${element.id}/videos?api_key=${process.env.API_K}&language=${lang}&page=1`
+    : `https://api.themoviedb.org/3/movie/${element.id}/videos?api_key=${process.env.API_K}&language=${lang}&page=1`;
 
     fetchData( `${whatToSearch}`,
 
@@ -22,6 +24,7 @@ export const renderTrailer = (element) => {
             const videoContainer = document.createElement("DIV");
             videoContainer.classList.add('video-container')
 
+            console.log(data);
             if(data.results.length>0){
                 const trailer = data.results.find(video => video.name === 'Official Trailer');
                 const key = trailer ? trailer.key : data.results[0].key
@@ -30,7 +33,9 @@ export const renderTrailer = (element) => {
                     videoContainer.innerHTML = ` <iframe width=${500} height=${500} src="https://www.youtube.com/embed/${key}" title=${e.name} frameborder="0" allowfullscreen allowautoplay ></iframe>  `; 
                 });
             }else{
-                videoContainer.innerHTML = `There's no trailer here :(`
+                videoContainer.innerHTML = lang === 'us-EN' ?  `There's no trailer here :(` :
+                lang === 'es-MX' ? `Parece que no hay trailer, intenta nuevamente cambiando de idioma` :
+                'Es scheint, dass es keinen Trailer gibt, ändern Sie die Sprache und versuchen Sie es erneut'
             }
 
             $overlay.insertAdjacentHTML(
