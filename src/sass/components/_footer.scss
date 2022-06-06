@@ -1,17 +1,30 @@
 .footer {
-  padding: 3rem;
-  display: grid;
-  grid-auto-flow: row;
-  align-items: center;
-  justify-content: space-around;
-  gap: 2rem;
-  color: #fff;
-  // background: $nav-background;
-  text-align: center;
-  @media #{$sm} {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+  background-image: url('https://img.freepik.com/free-photo/clapperboard-popcorn_23-2147775681.jpg?w=826&t=st=1654543065~exp=1654543665~hmac=7b6efb0202ab45fe0a20c40bc37de608edbd12ca10b6d7bee761d8fa116081f4');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  
+  .overlay{
+    opacity: 1;
   }
+
+  .footer-content{
+    padding: 5rem;
+    display: grid;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(75deg,#000000e5, #000000d2);
+
+    @media #{$sm} {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+  }
+
   .column {
     display: flex;
     flex-direction: column;
@@ -21,5 +34,6 @@
 
   .footer-form {
     display: flex; 
+    margin-top: .5rem;
   }
 }
