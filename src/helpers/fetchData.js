@@ -4,6 +4,6 @@ export const fetchData = (url, callback) => {
     .then((data) => callback(data))
 
     .catch((error) => {
-      console.log(error);
+      return error;
     });
 };
