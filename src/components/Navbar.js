@@ -37,32 +37,41 @@ export const Navbar = () => {
       let query = document.querySelector(".search-form input").value;
       if (!query) $resultsContainer.style.display = "none";
       
-      $resultsContainer.innerHTML = "";
       fetchData(
         `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_K}&language=en-US&query=${query}&page=1&include_adult=false`,
-
+        
         (data) => {
-          if (data.results.length <= 0){            
-            $resultsContainer.innerHTML = `There are no results for "${query}"`;
+          if (data.results.length <= 0 ){            
+            $resultsContainer.innerHTML = `There are no results for "${query}" `;
+          }else{
+            
+            $resultsContainer.innerHTML = "";
+            
+            data.results.forEach((element) => {
+
+              const { poster_path, media_type, name, original_title, original_name } = element;
+              if(poster_path){
+                if( media_type === 'tv' || media_type === 'movie'){
+                  const resultName = name || original_title || original_name;
+                  const image = poster_path;
+                  const $resultItem = document.createElement("DIV");
+                  $resultItem.classList.add("result-item");
+    
+                  const $resultName = document.createElement("P");
+                  $resultName.textContent = `${resultName}`;
+                  
+                  const $resultImg = document.createElement("IMG");
+                  $resultImg.src = `https://image.tmdb.org/t/p/w500${image}`;
+    
+                  $resultItem.append($resultImg, $resultName);
+                  
+                  $resultsContainer.append($resultItem);
+   
+                }
+              }
+            });
           }
-          data.results.forEach((element) => {
-            const { poster_path, media_type, } = element;
-            const resultName = element.name || element.original_title || element.original_name;
 
-            if ((poster_path && resultName && media_type === "movie") || media_type === "tv") {
-              const $resultItem = document.createElement("DIV");
-              $resultItem.classList.add("result-item");
-
-              const $resultName = document.createElement("P");
-              $resultName.textContent = `${resultName}`;
-
-              const $resultImg = document.createElement("IMG");
-              $resultImg.src = `https://image.tmdb.org/t/p/w500${poster_path}`;
-
-              $resultItem.append($resultImg, $resultName);
-              $resultsContainer.append($resultItem);
-            }
-          });
         }
       );
     }
