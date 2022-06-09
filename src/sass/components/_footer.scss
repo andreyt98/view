@@ -15,16 +15,19 @@
   }
 
   .footer-content{
-    padding: 5rem;
     display: grid;
     grid-auto-flow: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    
+    
     gap: 2rem;
+    padding: 3rem;
     color: #fff;
     text-align: center;
     z-index: 1;
-    @media #{$sm} {
+
+    @media #{$lg} {
       grid-auto-flow: column;
       grid-auto-columns: 1fr;
     }
