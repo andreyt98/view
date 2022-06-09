@@ -4,9 +4,16 @@
   background-position: center;
   background-size: cover;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid red;
   
   .overlay{
     opacity: 1;
+    background: linear-gradient(75deg,#000000e5, #000000d2);
   }
 
   .footer-content{
@@ -18,14 +25,20 @@
     gap: 2rem;
     color: #fff;
     text-align: center;
-    background: linear-gradient(75deg,#000000e5, #000000d2);
-
+    z-index: 1;
     @media #{$sm} {
       grid-auto-flow: column;
       grid-auto-columns: 1fr;
     }
+    
   }
-
+  .creator{
+    margin: 2rem 0 .3rem;
+    font-size: .8rem;
+    text-align: center;
+    color: #fff;
+  }
+  
   .column {
     display: flex;
     flex-direction: column;
@@ -38,13 +51,15 @@
     margin-top: .5rem;
   }
 
+  .bottom{
+    z-index: 1;
+  }
   .lang-selector{
     color: #fff;
-    position: absolute;
-    bottom: 2%;
-    right: 2%;
-    font-size: .6rem;
+    text-align: center;
+    font-size: .8rem;
     #language{
+      display: flex;
       width: 100%;
     }
   }

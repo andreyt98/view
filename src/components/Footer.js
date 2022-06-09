@@ -6,6 +6,8 @@ export const Footer = () => {
 
   $footer.innerHTML = `
 
+        <div class="overlay"></div>
+
         <div class="footer-content">   
             <div class="column">
                 <h3>Get in touch</h3>
@@ -24,18 +26,22 @@ export const Footer = () => {
                     ${Input("email", "email@example.com", true,"Subscribe").innerHTML}
                 </form>
             </div>
-
+         
         </div>
-
-        <div class="lang-selector">
-                <p>Language for trailers</p>
-                <select name="language" id="language">
-                    <option selected disabled value=""> Select...</option>
-                    <option value="en-US">English</option>
-                    <option value="es-MX">Español</option>
-                    <option value="de">Deutsch</option>
-                </select>
+            
+        <div class="bottom">      
+            <div class="lang-selector">
+                    <p>Language for trailers</p>
+                    <select name="language" id="language">
+                        <option selected disabled value=""> Select...</option>
+                        <option value="en-US">English</option>
+                        <option value="es-MX">Español</option>
+                        <option value="de">Deutsch</option>
+                    </select>
             </div>
+            <p class="creator">Made by Andrey Torrente 2022</p>
+        </div>
+           
     `;
 
   return $footer;
