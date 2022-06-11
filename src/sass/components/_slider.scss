@@ -29,8 +29,22 @@
       border-radius: 12px;
       position: relative;
       overflow: hidden;
-      &:hover .overlay {
-        opacity: 1;
+
+      .play{
+        cursor: pointer;
+        font-size: 5.2rem;
+        transition: all 0.4s;
+        &:hover{transform: scale(1.2);}
+      }
+      .overlay{      
+        background: linear-gradient(180deg,#00000081, #0000008f);
+        overflow: hidden;
+        transform: scale(0);
+        transition: all 0.4s;
+      }        
+      &:hover .overlay{
+        height: 100%;
+        transform: scale(1);
       }
 
       .content-img {
@@ -46,15 +60,15 @@
     @include flex($justify: space-between, $align: center);
     padding: 1rem;
     color: #ffffffd8;
+    span{
+      font-weight: 300;
+    }
   }
 
   .controls {
     @include flex($justify: end, $align: center, $gap: 0.5rem);
-    // display: none;
     width: auto;
-    // @media #{$md} {
-      display: flex;
-    // }
+    display: flex;
     .left,
     .right {
       color: #ffffffd8;
@@ -65,5 +79,12 @@
         transform: scale(1.1);
       }
     }
+  }
+  .more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1rem;
   }
 }
