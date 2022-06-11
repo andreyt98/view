@@ -1,5 +1,5 @@
 .results-container {
-    @include position($position: fixed, $top: 6.5rem, $left: 0, $right: 0);
+    @include position($position: fixed, $top: 3rem, $left: 0, $right: 0);
     @include flex($direction: column, $justify: space-between, $align: center, $gap: .5rem);
     overflow-y: auto;
     height: 80vh;
@@ -11,8 +11,8 @@
     display: none;
     width: 70%;
     margin: 0 auto;
-    @media #{$sm}{width: 45%; top: 6rem;}
-    @media #{$md}{width: 40%; top: 4rem; right:1%; left: auto;}
+    @media #{$sm}{width: 45%;}
+    @media #{$md}{width: 40%;right:1%; left: auto;}
     @media #{$lg}{width: 35%;}
     border: 1px solid #ffffff4f;
     z-index: 49;
