@@ -31,15 +31,14 @@ export const Footer = () => {
             
         <div class="bottom">      
             <div class="lang-selector">
-                    <p>Language for trailers</p>
                     <select name="language" id="language">
-                        <option selected disabled value=""> Select...</option>
+                        <option selected disabled value=""> Select language</option>
                         <option value="en-US">English</option>
                         <option value="es-MX">Español</option>
                         <option value="de">Deutsch</option>
                     </select>
             </div>
-            <p class="creator">Made by Andrey Torrente 2022</p>
+            <p class="creator">Made by Andrey Torrente ⚡ 2022</p>
         </div>
            
     `;
