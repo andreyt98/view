@@ -16,7 +16,7 @@ export const Router = () => {
     root.append(
       HeroSlider("tv"),
       Slider("| Popular", "TV Shows", "tv", "popular"),
-      Slider("| Top Rated","TV Shows", "tv", "top_rated")
-    );
+      Slider("| Airing today","TV Shows", "tv", "airing_today")
+  );
   }
 };

@@ -28,7 +28,7 @@ export const Slider = (header, mediaType, typeOfSearch, category) => {
 
       data.results.forEach((element) => {
       
-        const content = loadSliderContent(element,typeOfSearch);
+        let content = loadSliderContent(element);
         $slider.append(content);
 
         $moreContent.innerHTML = `
@@ -68,7 +68,7 @@ export const Slider = (header, mediaType, typeOfSearch, category) => {
           $moreContent.classList.add("more");
           
           data.results.forEach((element) => {
-            const content = loadSliderContent(element,typeOfSearch);
+            const content = loadSliderContent(element);
             slider.append(content)
 
             $moreContent.innerHTML = `
@@ -96,7 +96,7 @@ function loadSliderContent(element){
     $content.classList.add("content");
 
     $content.innerHTML = `
-    <img src=https://image.tmdb.org/t/p/w500${element.poster_path} class="content-img"></img>
+    <img src=https://image.tmdb.org/t/p/w500/${element.poster_path} class="content-img"></img>
       <div class="overlay">
       <i class="bi bi-play-circle play" id=${element.id}></i>
       </div> 
