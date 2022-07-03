@@ -5,4 +5,4 @@ It's based on components and has a router to control what to show, based on the 
 
 All this, to introduce myself to how React kinda works!
 
-Check the project on this [DEMO](https://view-movie-app.netlify.app/)
+Check the project on this [DEMO](https://view-app.netlify.app/)
