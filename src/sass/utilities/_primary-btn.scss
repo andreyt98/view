@@ -5,6 +5,9 @@
     border: none;
     color: white;
     cursor: pointer;
+    box-shadow: 1px 1px 7px black;
+
+    font-size: inherit;
     transition: all 0.3s;
     &:hover{transform: scale(1.1);}
 }
