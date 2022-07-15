@@ -32,7 +32,7 @@ export const HeroSlider = (mediaType) => {
           <img src="https://image.tmdb.org/t/p/w1280${element.backdrop_path}" class="hero-content-img" />
           <div class="overlay" style="opacity:1">     
             <div class="hero-slider-info">
-              <h2 style="font-size:2rem">${$title}</h2>
+              <h2>${$title}</h2>
 
               <div>
                 <i class="bi bi-star-fill stars"></i>
