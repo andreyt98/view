@@ -4,6 +4,8 @@ import { resultsContainer } from "./components/ResultsContainer.js";
 import { Router } from "./helpers/Router.js";
 
 export let lang = 'en-US'
+export let windowsWidth = document.documentElement.clientWidth;
+export let isTrailerPlaying = false;
 
 export const App = () => {
   const root = document.querySelector("#root");
