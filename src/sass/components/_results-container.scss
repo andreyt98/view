@@ -1,31 +1,86 @@
 .results-container {
-    @include position($position: fixed, $top: 3rem, $left: 0, $right: 0);
-    @include flex($direction: column, $justify: space-between, $align: center, $gap: .5rem);
-    overflow-y: auto;
-    height: 80vh;
-    overflow-x: hidden;
-    background: #252525;
-    background: $nav-background;
-    border-radius: 9px;
-    color: #fff;
-    display: none;
-    width: 70%;
-    margin: 0 auto;
-    @media #{$sm}{width: 45%;}
-    @media #{$md}{width: 40%;right:1%; left: auto;}
-    @media #{$lg}{width: 35%;}
-    border: 1px solid #ffffff4f;
-    z-index: 49;
-        &::-webkit-scrollbar{ width: 5px;cursor: pointer;}
-        &::-webkit-scrollbar-track{border-radius: 10px;background: #383838;  margin: .2rem;}      
-        &::-webkit-scrollbar-thumb{background: #747474;border-radius: 10px;}
- 
-      .result-item{
-        @include flex( $align: center, $gap: .5rem);
-        padding: 0.5rem;
-        cursor: pointer;
-        width: 100%;
-        &:hover{background: #141414; color: $primary}
-        img{width: 20%;}
-      }
+  @include position($position: fixed, $top: 10rem, $left: 0, $right: 0);
+  @include flex($direction: column, $justify: space-between, $align: center, $gap: 0.5rem);
+  overflow-y: auto;
+  height: 75vh;
+  overflow-x: hidden;
+  background: #252525;
+  background: $nav-background;
+  border-radius: 9px;
+  color: #fff;
+  display: none;
+  width: 70%;
+  margin: 0 auto;
+  @media #{$sm} {
+    width: 45%;
+    // top: 4rem;
   }
+  @media #{$md} {
+    width: 40%;
+    // right: 1%;
+    // left: auto;
+    top: 7rem;
+  }
+  @media #{$lg} {
+    width: 35%;
+  }
+  border: 1px solid #ffffff4f;
+  z-index: 3;
+  &::-webkit-scrollbar {
+    width: 5px;
+    cursor: pointer;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #383838;
+    margin: 0.2rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #747474;
+    border-radius: 10px;
+  }
+
+  .result-item {
+    @include flex($align: center, $gap: 0.5rem);
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    &:hover {
+      background: #141414;
+      color: $primary;
+    }
+    img {
+      width: 20%;
+    }
+  }
+}
+
+.contenedor {
+  background: #000000b2;
+  backdrop-filter: blur(8px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 3;
+  display: none;
+
+  .x {
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 5%;
+    font-size: 2.5rem;
+    cursor: pointer;
+
+    @media #{$md} {
+      display: none;
+    }
+  }
+}
+
+.contenedor-active {
+  display: flex;
+}
