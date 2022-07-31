@@ -2,7 +2,7 @@ import { fetchData } from "../helpers/fetchData";
 import { sliderControls } from "../helpers/icons";
 const { left, right } = sliderControls;
 import { renderTrailer } from "../helpers/renderTrailer.js";
-import { lang } from "../App";
+import { isTrailerPlaying, lang, windowsWidth } from "../App";
 
 export const HeroSlider = (mediaType) => {
 
@@ -28,8 +28,10 @@ export const HeroSlider = (mediaType) => {
         const $content = document.createElement("DIV");
         $content.classList.add("hero-content-slider");
 
+        const typeOfImage = window.innerWidth < 648? element.poster_path: element.backdrop_path;
+
         $content.innerHTML = `
-          <img src="https://image.tmdb.org/t/p/w1280${element.backdrop_path}" class="hero-content-img" />
+          <img src="https://image.tmdb.org/t/p/w1280${typeOfImage}" class="hero-content-img" />
           <div class="overlay" style="opacity:1">     
             <div class="hero-slider-info">
               <h2>${$title}</h2>
@@ -39,7 +41,7 @@ export const HeroSlider = (mediaType) => {
                 <i class="bi bi-star-fill stars"></i>
                 <i class="bi bi-star-fill stars"></i>
                 <i class="bi bi-star-fill stars"></i>
-                <i class="bi bi-star-half stars"></i> <span style="color:lightsteelblue">(${$rate.textContent})</span>
+                <i class="bi bi-star-half stars"></i> <span style="color:lightsteelblue">(${$rate.textContent.slice(0,1)})</span>
               </div>
 
               <button class="primary-btn play" id=${element.id}>
@@ -55,13 +57,14 @@ export const HeroSlider = (mediaType) => {
         document.addEventListener("click", (e) => {
           if (e.target.matches(".hero-slider .play") && e.target.id == element.id) {
             renderTrailer(element);
+            isTrailerPlaying = true;
           }
         });
       });
  
       $sliderControls.innerHTML = `${left} ${right}`;
 
-      $sliderContainer.append($slider,$sliderControls );
+      $sliderContainer.append($slider );
     }
   );
 
@@ -81,3 +84,16 @@ export const HeroSlider = (mediaType) => {
 
   return $sliderContainer;
 };
+window.addEventListener('resize', () => {
+  
+  if(windowsWidth < 640 && document.documentElement.clientWidth >= 640 && !isTrailerPlaying){
+    window.location.reload();
+    windowsWidth = document.documentElement.clientWidth;
+    isTrailerPlaying = false;
+  }
+
+  if(windowsWidth >= 640 && document.documentElement.clientWidth < 640 && !isTrailerPlaying){
+    window.location.reload();
+    isTrailerPlaying = false;
+  }
+})
