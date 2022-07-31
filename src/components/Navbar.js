@@ -1,5 +1,5 @@
 import { fetchData } from "../helpers/fetchData.js";
-import { logo, search } from "../helpers/icons";
+import { logo, search,menu } from "../helpers/icons";
 import { Input } from "./Input.js";
 export const Navbar = () => {
   const $navBar = document.createElement("NAV");
@@ -8,15 +8,16 @@ export const Navbar = () => {
   
     <a href="#home" class="logo"> ${logo} </a>
 
-    <ul class="links">   
-      <li><a href="#movies"> Movies</a> </li>
-      <li><a href="#tv-shows"> TV Shows</a> </li>    
-    </ul>   
-
     
+    ${search}
+    ${menu}
+    
+    <ul class="links">   
+    <li><a href="#movies"> Movies</a> </li>
+    <li><a href="#tv-shows"> TV Shows</a> </li>    
+    </ul>   
     <form class="search-form"> 
-      ${search}
-      ${Input("search", "Search", false).innerHTML}
+    ${Input("text", "Search", false).innerHTML}
     </form> 
     `;
 
@@ -32,10 +33,15 @@ export const Navbar = () => {
     if (e.target.matches(".search-form input")) {
 
       const $resultsContainer = document.querySelector(".results-container");
+      const $contenedor = document.querySelector(".contenedor");
+      
       $resultsContainer.style.display = "flex";
       
       let query = document.querySelector(".search-form input").value;
-      if (!query) $resultsContainer.style.display = "none";
+      if (!query){
+        $resultsContainer.style.display = "none";
+        
+      }
       
       fetchData(
         `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_K}&language=en-US&query=${query}&page=1&include_adult=false`,
@@ -79,3 +85,36 @@ export const Navbar = () => {
 
   return $navBar;
 };
+
+document.addEventListener('click', (e) =>{
+
+  const navLinks = document.querySelector('.nav .links');
+  const searchForm = document.querySelector('.search-form');
+  const contenedor = document.querySelector('.contenedor');
+
+
+  if(e.target.matches('.menu-icon')){
+    searchForm.classList.remove('search-form-active')
+    navLinks.classList.toggle('menu-active')
+    contenedor.classList.remove('contenedor-active')
+  }
+  
+  if(e.target.matches('.search-btn')){
+    navLinks.classList.remove('menu-active')
+    searchForm.classList.toggle('search-form-active')    
+
+      searchForm.querySelector('input').focus()
+   
+    
+    contenedor.classList.toggle('contenedor-active')
+  }
+
+  
+  
+  if(e.target.matches('.x')){
+    contenedor.classList.remove('contenedor-active')
+    searchForm.classList.remove('search-form-active')
+
+  }
+  
+})
