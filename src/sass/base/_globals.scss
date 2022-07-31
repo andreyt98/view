@@ -6,9 +6,10 @@
   box-sizing: inherit;
 }
 html {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+
   @media #{$sm} {
-    font-size: .8rem;
+    font-size: 1rem;
   }
   @media #{$md} {
     font-size: 1.1rem;
