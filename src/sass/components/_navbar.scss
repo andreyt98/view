@@ -6,8 +6,7 @@
   color: white;
   white-space: nowrap;
   transition: all 0.4s;
-
-  // change
+  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,12 +31,11 @@
       display: none;
     } 
   }
-  // end of change
   
   i{font-size: 180%; z-index: 2;}
   .search-btn{
     margin-left: auto;
-    font-size: 150%;
+    font-size: 170%;
   }
   .logo {
     color: $primary;
@@ -58,7 +56,7 @@
     top:  0;
     width: 0;
     height:  100vh;
-    transition: width 0.3s;
+    transition: width 0.2s;
     overflow: hidden;
 
     @media #{$sm}{
@@ -80,8 +78,6 @@
       }
     }
   }
-
-  //part of change
   .menu-active{
     width: 100%;
     @media #{$sm}{
@@ -89,16 +85,12 @@
       height: auto;
     }
 
-  }
-  //end of part
-  
+  }  
   .search-form {
     @include flex($justify: space-between, $align:center);
     padding-left: 0.3rem;
     transition: all 0.3s;
     margin-left: auto;
-    
-    //change
     position: absolute;
     width: 80%;
     left: 50%;
@@ -114,8 +106,7 @@
   .search-form-active{
     visibility: visible;
     top:  80px;
-    opacity: 1;
-    
+    opacity: 1; 
   }
 }
 .color-on-scroll {
