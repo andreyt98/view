@@ -32,7 +32,7 @@ export const Footer = () => {
         <div class="bottom">      
             <div class="lang-selector">
                     <select name="language" id="language">
-                        <option selected disabled value=""> Select language</option>
+                        <option selected disabled value=""> Select trailer language</option>
                         <option value="en-US">English</option>
                         <option value="es-MX">Español</option>
                         <option value="de">Deutsch</option>

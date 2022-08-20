@@ -12,28 +12,31 @@
   align-items: center;
   gap: 2rem;
 
-  @media #{$sm}{
-     display: grid;
+  @media #{$sm} {
+    display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
     align-items: center;
     justify-content: center;
-
   }
 
-  .menu-icon, .search-btn{
+  .menu-icon,
+  .search-btn {
     color: $primary;
     font-weight: bold;
     cursor: pointer;
   }
-  .menu-icon{
-    @media #{$sm}{
+  .menu-icon {
+    @media #{$sm} {
       display: none;
-    } 
+    }
   }
-  
-  i{font-size: 180%; z-index: 2;}
-  .search-btn{
+
+  i {
+    font-size: 180%;
+    z-index: 2;
+  }
+  .search-btn {
     margin-left: auto;
     font-size: 170%;
   }
@@ -42,33 +45,29 @@
     font-weight: 600;
   }
 
-
   .links {
-    @include flex($justify: center, $align: center, $direction:column, $gap: 1.1rem);
+    @include flex($justify: center, $align: center, $direction: column, $gap: 1.1rem);
     grid-column: 2/3;
 
-
-    //change
-    background:  #000000e0;
-    backdrop-filter:blur(8px);
-        position: absolute;
+    background: #000000f3;
+    backdrop-filter: blur(8px);
+    position: absolute;
     left: 0;
-    top:  0;
+    top: 0;
     width: 0;
-    height:  100vh;
+    height: 100vh;
     transition: width 0.2s;
     overflow: hidden;
 
-    @media #{$sm}{
+    @media #{$sm} {
       position: static;
       width: auto;
       height: auto;
-      background: none; 
-      flex-direction: row;   
+      background: none;
+      backdrop-filter: blur(0);
+      flex-direction: row;
     }
 
-    
-    //end of change
     a {
       transition: all 0.4s;
       color: #ffffff;
@@ -78,16 +77,15 @@
       }
     }
   }
-  .menu-active{
+  .menu-active {
     width: 100%;
-    @media #{$sm}{
-      flex-direction: row;   
+    @media #{$sm} {
+      flex-direction: row;
       height: auto;
     }
-
-  }  
+  }
   .search-form {
-    @include flex($justify: space-between, $align:center);
+    @include flex($justify: space-between, $align: center);
     padding-left: 0.3rem;
     transition: all 0.3s;
     margin-left: auto;
@@ -95,20 +93,17 @@
     width: 80%;
     left: 50%;
     transform: translate(-50%);
-    top:  30px;
+    top: 30px;
     visibility: hidden;
     opacity: 0;
-
     background: #030005b0;
     backdrop-filter: blur(8px);
-  } 
+  }
 
-  .search-form-active{
+  .search-form-active {
     visibility: visible;
-    top:  80px;
-    opacity: 1; 
+    top: 80px;
+    opacity: 1;
   }
 }
-.color-on-scroll {
-  background: $nav-background;
-}
+.color-on-scroll {backdrop-filter: blur(15px);}
