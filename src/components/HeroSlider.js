@@ -20,7 +20,7 @@ export const HeroSlider = (mediaType) => {
       const $slider = document.createElement("DIV");
       $slider.classList.add("hero-slider");
 
-      data.results.slice(0,10).forEach((element) => {
+      data.results.slice(0,5).forEach((element) => {
         const $title =
         mediaType === "movie" ? `${element.original_title}` : `${element.name}`;
         const $rate = document.createElement("P");

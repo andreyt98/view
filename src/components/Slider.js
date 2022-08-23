@@ -26,7 +26,7 @@ export const Slider = (header, mediaType, typeOfSearch, category) => {
       const $moreContent = document.createElement("DIV");
       $moreContent.classList.add("more");
 
-      data.results.forEach((element) => {
+      data.results.slice(0,10).forEach((element) => {
       
         let content = loadSliderContent(element);
         $slider.append(content);
