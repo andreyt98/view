@@ -98,7 +98,7 @@ function loadSliderContent(element){
     $content.innerHTML = `
     <img src=https://image.tmdb.org/t/p/w500/${element.poster_path} class="content-img"></img>
       <div class="overlay">
-      <i class="bi bi-play-circle play" id=${element.id}></i>
+      <i class="bi bi-play-circle play" data-id=${element.id}></i>
       </div> 
 
       `; 
@@ -107,7 +107,7 @@ function loadSliderContent(element){
 
 function loadTrailerOnClick(element){
   document.addEventListener("click", (e) => {                  
-    if (e.target.matches(".slider .play") && e.target.id == element.id) {
+    if (e.target.matches(".slider .play") && e.target.getAttribute("data-id") == element.id) {
       renderTrailer(element,lang);
     }          
   });

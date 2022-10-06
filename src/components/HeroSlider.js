@@ -44,7 +44,7 @@ export const HeroSlider = (mediaType) => {
                 <i class="bi bi-star-half stars"></i> <span style="color:lightsteelblue">(${$rate.textContent.slice(0,1)})</span>
               </div>
 
-              <button class="primary-btn play" id=${element.id}>
+              <button class="primary-btn play" data-id=${element.id}>
                 <i class="bi bi-play-circle-fill "></i>
                 Watch Trailer
               </button> 
@@ -55,7 +55,7 @@ export const HeroSlider = (mediaType) => {
         $slider.append($content);    
         
         document.addEventListener("click", (e) => {
-          if (e.target.matches(".hero-slider .play") && e.target.id == element.id) {
+          if (e.target.matches(".hero-slider .play") && e.target.getAttribute("data-id") == element.id) {
             renderTrailer(element);
             isTrailerPlaying = true;
           }
