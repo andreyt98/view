@@ -13,8 +13,8 @@ export const Navbar = () => {
     ${menu}
     
     <ul class="links">   
-    <li><a href="#movies"> Movies</a> </li>
     <li><a href="#tv-shows"> TV Shows</a> </li>    
+    <li><a href="#movies"> Movies</a> </li>
     </ul>   
     <form class="search-form"> 
     ${Input("text", "Search", false).innerHTML}
