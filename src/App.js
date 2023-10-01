@@ -3,7 +3,8 @@ import { Navbar } from "./components/Navbar.js";
 import { resultsContainer } from "./components/ResultsContainer.js";
 import { Router } from "./helpers/Router.js";
 
-export let lang = 'en-US'
+// export let lang = 'en-US'
+export let lang = document.querySelectorAll('.lang-selector select option').value
 export let windowsWidth = document.documentElement.clientWidth;
 export let isTrailerPlaying = false;
 
@@ -15,21 +16,14 @@ export const App = () => {
   root.append(resultsContainer());
   Router();
   root.append(Footer());
-  
+  lang ? document.querySelector('#language').value = lang : ""
 };
 
 document.addEventListener('change', (e) => {
     
   if(e.target.matches('#language')){
-      if(e.target.value === 'es-MX'){
-        lang = 'es-MX'
-        App()
-      }else if(e.target.value === 'en-US'){
-        lang = 'en-US'
-        App()
-      }else if(e.target.value === 'de'){
-        lang = 'de'
-        App()
-      } 
+
+    lang = e.target.value;
+    App();
   }
 })
